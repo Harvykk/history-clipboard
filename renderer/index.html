@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' file: data:;">
+  <title>历史剪贴板</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部工具栏 -->
+  <header class="toolbar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索复制过的内容..." autocomplete="off">
+      <button id="clearSearch" class="clear-btn" title="清除搜索">✕</button>
+    </div>
+    <select id="retentionSelect" class="retention-select" title="留存天数">
+      <option value="1">1天</option>
+      <option value="3" selected>3天</option>
+      <option value="5">5天</option>
+    </select>
+  </header>
+
+  <!-- 卡片列表 -->
+  <main class="card-list" id="cardList">
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <p class="empty-title">暂无剪贴记录</p>
+      <p class="empty-hint">复制文字或图片后会自动出现在这里</p>
+    </div>
+  </main>
+
+  <!-- 底部状态栏 -->
+  <footer class="status-bar">
+    <span id="statsText">共 0 条记录</span>
+  </footer>
+
+  <!-- 置顶按钮模板（clone 使用） -->
+  <template id="pinBtnTemplate">
+    <button class="card-btn pin-btn" title="置顶">
+      <span class="pin-icon">📌</span>
+    </button>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

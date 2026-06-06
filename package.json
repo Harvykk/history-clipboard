@@ -1,0 +1,44 @@
+{
+  "name": "history-clipboard",
+  "version": "1.0.0",
+  "description": "Windows 历史剪贴板管理工具 - 记录、搜索、管理复制历史",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "node start.js",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "@electron/asar": "^4.2.0",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.history-clipboard.app",
+    "productName": "历史剪贴板",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "db/**/*",
+      "clipboard/**/*",
+      "renderer/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "extraResources": []
+  }
+}
